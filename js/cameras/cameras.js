@@ -1,7 +1,9 @@
 import { PerspectiveCamera, OrthographicCamera } from "three";
 
-const [fov, aspect, near, far] = [45, 2, 0.1, 100];
-export const cameraPerspective = new PerspectiveCamera(fov, aspect, near, far);
+const [fov, aspect, near, far] = [45, 2, 0.1, 1000];
+const cameraPerspective = new PerspectiveCamera(fov, aspect, near, far);
+cameraPerspective.position.set(450, 250, 0);
+cameraPerspective.lookAt(0, 0, 0);
 
 const aspectRatio = window.innerWidth / window.innerHeight;
 const cameraWidth = 150;
@@ -15,7 +17,7 @@ const cameraOrto = new OrthographicCamera(
   0, // near plane
   1000 // far plane
 );
-cameraOrto.position.set(200, 200, 200);
+cameraOrto.position.set(300, 300, 300);
 cameraOrto.lookAt(0, 10, 0);
 
 export const cameras = [cameraPerspective, cameraOrto];

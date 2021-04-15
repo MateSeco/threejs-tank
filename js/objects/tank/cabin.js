@@ -6,7 +6,7 @@ import {
   Vector2,
 } from "three";
 
-function getCarSideTexture() {
+function getTankSideTexture() {
   const canvas = document.createElement("canvas");
   canvas.width = 128;
   canvas.height = 32;
@@ -22,7 +22,7 @@ function getCarSideTexture() {
   return new CanvasTexture(canvas);
 }
 
-function getCarFrontTexture() {
+function getTankFrontTexture() {
   const canvas = document.createElement("canvas");
   canvas.width = 128;
   canvas.height = 32;
@@ -38,23 +38,23 @@ function getCarFrontTexture() {
 }
 
 export default function createCabin() {
-  const carFrontTexture = getCarFrontTexture();
-  const carBackTexture = getCarFrontTexture();
-  const carRightTexture = getCarSideTexture();
-  const carLeftTexture = getCarSideTexture();
-  carLeftTexture.center = new Vector2(0.5, 0.5);
-  carLeftTexture.rotation = Math.PI;
-  carLeftTexture.flipY = false;
+  const tankFrontTexture = getTankFrontTexture();
+  const tankBackTexture = getTankFrontTexture();
+  const tankRightTexture = getTankSideTexture();
+  const tankLeftTexture = getTankSideTexture();
+  tankLeftTexture.center = new Vector2(0.5, 0.5);
+  tankLeftTexture.rotation = Math.PI;
+  tankLeftTexture.flipY = false;
 
   const geometry = new BoxBufferGeometry(33, 12, 24);
-  const carCabin = new Mesh(geometry, [
-    new MeshLambertMaterial({ map: carFrontTexture }),
-    new MeshLambertMaterial({ map: carBackTexture }),
+  const tankCabin = new Mesh(geometry, [
+    new MeshLambertMaterial({ map: tankFrontTexture }),
+    new MeshLambertMaterial({ map: tankBackTexture }),
     new MeshLambertMaterial({ color: 0xffffff }),
     new MeshLambertMaterial({ color: 0xffffff }),
-    new MeshLambertMaterial({ map: carRightTexture }),
-    new MeshLambertMaterial({ map: carLeftTexture }),
+    new MeshLambertMaterial({ map: tankRightTexture }),
+    new MeshLambertMaterial({ map: tankLeftTexture }),
   ]);
 
-  return carCabin;
+  return tankCabin;
 }
