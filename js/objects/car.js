@@ -1,5 +1,6 @@
 import { Group, Mesh, BoxBufferGeometry, MeshLambertMaterial } from "three";
 import createWheels from "./wheels";
+import createCabin from "./cabin";
 
 export default function createCar() {
   const car = new Group();
@@ -25,14 +26,9 @@ export default function createCar() {
     car.add(carBody);
   }
 
-  {
-    const geometry = new BoxBufferGeometry(33, 12, 24);
-    const material = new MeshLambertMaterial({ color: 0xffffff });
-    const carCabin = new Mesh(geometry, material);
-    carCabin.position.x = -6;
-    carCabin.position.y = 25.5;
-    car.add(carCabin);
-  }
+  const carCabin = createCabin();
+  console.log(carCabin);
+  car.add(carCabin);
 
   return car;
 }
