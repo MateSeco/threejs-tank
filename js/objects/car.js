@@ -30,9 +30,8 @@ export default function createCar() {
     const carCabin = createCabin();
     carCabin.position.x = -6;
     carCabin.position.y = 25.5;
+    car.add(carCabin);
   }
-
-  car.add(carCabin);
 
   return car;
 }
