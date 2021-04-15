@@ -55,8 +55,6 @@ export default function createCabin() {
     new MeshLambertMaterial({ map: carRightTexture }),
     new MeshLambertMaterial({ map: carLeftTexture }),
   ]);
-  carCabin.position.x = -6;
-  carCabin.position.y = 25.5;
 
   return carCabin;
 }

@@ -26,8 +26,12 @@ export default function createCar() {
     car.add(carBody);
   }
 
-  const carCabin = createCabin();
-  console.log(carCabin);
+  {
+    const carCabin = createCabin();
+    carCabin.position.x = -6;
+    carCabin.position.y = 25.5;
+  }
+
   car.add(carCabin);
 
   return car;
