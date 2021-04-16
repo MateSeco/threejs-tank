@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { cameras } from "./cameras/cameras";
 import { lights } from "./lights/lights";
+import createTrajectory from "./objects/tank/trajectory";
 import createTank from "./objects/tank/tank";
 import createGround from "./objects/ground/ground";
 import axisGridHelper from "./helpers/axisHelper";
@@ -20,6 +21,9 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 lights.forEach((light) => scene.add(light));
 
 // Objects
+const trajectory = createTrajectory();
+scene.add(trajectory);
+
 const tank = createTank();
 scene.add(tank);
 
@@ -27,6 +31,7 @@ const ground = createGround();
 scene.add(ground);
 
 // Helpers
+axisGridHelper(trajectory, "trajectory");
 axisGridHelper(ground, "ground");
 axisGridHelper(tank, "tank");
 const helper = new THREE.CameraHelper(lights[1].shadow.camera);
@@ -37,8 +42,9 @@ function animate() {
   requestAnimationFrame(animate);
   tank.rotation.y += 0.01;
   tank.translateX(1);
-  tank.getObjectByName("frontWheel").rotation.y -= 0.05;
-  tank.getObjectByName("backWheel").rotation.y -= 0.05;
+  tank
+    .getObjectByName("wheels")
+    .children.map((wheel) => (wheel.rotation.y -= 0.05));
   renderer.render(scene, cameras[0]);
 }
 
