@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx webpack ./js/index.js ./dist/output.js"
+    "start": "npx webpack ./index.js ./dist/output.js"
   },
   "author": "",
   "license": "ISC",

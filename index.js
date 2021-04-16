@@ -1,10 +1,10 @@
 import * as THREE from "three";
-import { cameras } from "./cameras/cameras";
-import { lights } from "./lights/lights";
-import createTrajectory from "./objects/tank/trajectory";
-import createTank from "./objects/tank/tank";
-import createGround from "./objects/ground/ground";
-import axisGridHelper from "./helpers/axisHelper";
+import { cameras } from "./js/cameras/cameras";
+import { lights } from "./js/lights/lights";
+import createTrajectory from "./js/objects/tank/trajectory";
+import createTank from "./js/objects/tank/tank";
+import createGround from "./js/objects/ground/ground";
+import axisGridHelper from "./js/helpers/axisHelper";
 
 const canvas = document.querySelector("#canvas");
 
